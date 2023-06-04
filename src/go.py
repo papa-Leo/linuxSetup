@@ -1,13 +1,14 @@
 from os import system
-import fontConfig
+import fontConfig, apps
 home = '~'
 
 def main():
 	system('echo WELCOME TO THE LINUX SETUP CLI')
-	print('Please ensure you\'ve run the pre.py script before this one')
-	system('cd ~/.ossetup')
+	print('Please ensure you\'ve run pre.py before this one')
 
 	home = '/home/' + input('What is your home path? /home/')
+	system('echo "Updating repositories... " && sudo apt update && Done')
+	system('echo -n "Installing wget & curl..." && sudo apt install wget > /dev/null 2>&1 && sudo apt install curl > /dev/null 2>&1 && echo Done')
 	answer = input('Setup default Papa Leo OS? [y/n] ')
 	ynMethods(answer, defaultLeoSetup, customSetup)
 
@@ -15,7 +16,14 @@ def defaultLeoSetup():
 	print('Leo')
 
 def customSetup():
+	# install nerd fonts
 	ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont(home), fontConfig.patchFont(home))
+	
+	# install browsers
+	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers, ret)
+
+	# install apps
+	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps, ret)
 
 # this method takes Y/N user input and executes a given method
 def ynMethods(answer, yesMethod, noMethod):
