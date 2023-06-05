@@ -13,7 +13,7 @@ def main():
 	ynMethods(answer, defaultLeoSetup, customSetup)
 
 def defaultLeoSetup():
-	print('Leo')
+	print('Papa Leo')
 
 def customSetup():
 	# install nerd fonts
@@ -28,11 +28,15 @@ def customSetup():
 	print()
 	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps, ret)
 
-	# configure gnome-terminal
+	# install zsh
 	print()
-	if ynOptions(input('Would you like to choose some apps to install? [y/n] '), True, False):
-		print('Find the name of your gnome-terminal dconf profile. Use "dconf dump /org/gnome/terminal/legacy/profiles:/:" and press tab. Paste the profile here:')
-		term.configureTerminal(input('.../profiles:/:'))
+	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH, ret)
+
+	# configure gnome-terminal
+	# print()
+	# if ynOptions(input('Would you like to choose some apps to install? [y/n] '), True, False):
+	# 	print('Find the name of your gnome-terminal dconf profile. Use "dconf dump /org/gnome/terminal/legacy/profiles:/:" and press tab. Paste the profile here:')
+	# 	term.configureTerminal(input('.../profiles:/:'))
 
 # this method takes Y/N user input and executes a given method
 def ynMethods(answer, yesMethod, noMethod):

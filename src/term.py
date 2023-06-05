@@ -16,3 +16,8 @@ def configureTerminal(profile, fontName):
     system('dconf write /use-theme-colors false')
     system('dconf write /use-theme-transparency false')
     system('dconf write /use-transparent-background true')
+
+def installZSH():
+    system('echo -n "Installing zsh... " && sudo apt install zsh -y && echo Done')
+    system('echo -n "Installing oh-my-zsh... " && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && echo Done')
+	
