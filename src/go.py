@@ -1,5 +1,5 @@
 from os import system
-import fontConfig, apps
+import fontConfig, apps, term
 home = '~'
 
 def main():
@@ -17,13 +17,22 @@ def defaultLeoSetup():
 
 def customSetup():
 	# install nerd fonts
+	print()
 	ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont(home), fontConfig.patchFont(home))
 	
 	# install browsers
+	print()
 	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers, ret)
 
 	# install apps
+	print()
 	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps, ret)
+
+	# configure gnome-terminal
+	print()
+	if ynOptions(input('Would you like to choose some apps to install? [y/n] '), True, False):
+		print('Find the name of your gnome-terminal dconf profile. Use "dconf dump /org/gnome/terminal/legacy/profiles:/:" and press tab. Paste the profile here:')
+		term.configureTerminal(input('.../profiles:/:'))
 
 # this method takes Y/N user input and executes a given method
 def ynMethods(answer, yesMethod, noMethod):
