@@ -1,7 +1,6 @@
 import os
 from os import system
 from fontTools import ttLib
-from go import getUserChoice
 
 def chooseDefaultFont(HOME):
 	print('Which of these fonts would you like to use as your default monospace font?')
@@ -9,7 +8,8 @@ def chooseDefaultFont(HOME):
 
 	for font in os.listdir(f'{HOME}/.local/share/fonts/'):
 		try:
-			fontName = ttLib.TTFont(f'{HOME}/.local/share/fonts/{font}')['name'].getDebugName(1)
+			ttFont = ttLib.TTFont(f'{HOME}/.local/share/fonts/{font}')
+			fontName = ttFont['name'].getDebugName(1)
 			if not fontName in fonts:
 				fonts.append(fontName)
 		except:
@@ -37,7 +37,16 @@ def patchFont(HOME):
 		system(f'mkdir {HOME}/.local/share/fonts/')
 	system(f'echo -n "Installing patched fonts... " && cd {HOME}/.ossetup/fonts/patched/ && cp ./* {HOME}/.local/share/fonts/ && echo Done!')
 
-def installFont(home):
+def installFont(HOME):
 	if not os.path.exists(f'{HOME}/.local/share/fonts/'):
 		system(f'mkdir {HOME}/.local/share/fonts/')
 	system(f'echo -n "Installing fonts... " && cd {HOME}/.ossetup/fonts/ && cp ./* {HOME}/.local/share/fonts/ && Done!')
+
+# this method gets user choice within a number range
+def getUserChoice(low, hi):
+	userChoice = int(input(f'Choose an option [{low}-{hi}]: '))
+	if userChoice >= low and userChoice <= hi:
+		return userChoice
+	else:
+		print('Invalid option, please try again.')
+		getUserChoice(low, hi)

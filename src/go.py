@@ -75,7 +75,7 @@ def ynOptions(answer, yesOption, noOption):
 		answer = input('Invalid option, try again: ')
 		return ynOptions(answer, yesOption, noOption)
 
-# thos method gets user choice within a number range
+# this method gets user choice within a number range
 def getUserChoice(low, hi):
 	userChoice = int(input(f'Choose an option [{low}-{hi}]: '))
 	if userChoice >= low and userChoice <= hi:
