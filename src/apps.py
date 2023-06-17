@@ -11,15 +11,15 @@ def browsers():
 			case 'b':
 				system('sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg')
 				system('echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list')
-				system('sudo apt -qq update && sudo apt -qq install brave-browser -y')
+				system('sudo apt -q update && sudo apt -q install brave-browser -y')
 			case 'c':
 				system('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb')
 				system('sudo dpkg -i google-chrome-stable_current_amd64.deb')
 			case 'e':
 				system("curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/ && sudo sh -c 'echo \"deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main\" > /etc/apt/sources.list.d/microsoft-edge-dev.list' && sudo rm microsoft.gpg")
-				system('sudo apt -qq install microsoft-edge-stable -y')
+				system('sudo apt -q install microsoft-edge-stable -y')
 			case 'f':
-				system('sudo apt -qq install firefox -y')
+				system('sudo apt -q install firefox -y')
 	system('echo Browser(s) installed!')
 			
 
@@ -32,13 +32,13 @@ def apps():
 	for char in a:
 		match char:
 			case 's':
-				system('sudo apt -qq install spotify-client -y')
+				system('sudo apt -q install spotify-client -y')
 			case 'd':
 				system('sudo snap install discord')
 			case 'c':
-				system('sudo apt -qq install code -y')
+				system('sudo apt -q install code -y')
 			case 'v':
-				system('sudo apt -qq install vlc -y')
+				system('sudo apt -q install vlc -y')
 	system('echo App(s) installed!')
 
 def installSpicetify():

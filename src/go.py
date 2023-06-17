@@ -8,11 +8,11 @@ USER = os.environ['USER']
 
 def main():
 	# welcome message
-	system('echo WELCOME TO THE LINUX SETUP CLI')
+	system('echo "		WELCOME TO THE LINUX SETUP CLI"')
 	print('Please ensure you\'ve run pre.py before this')
 
 	# install some dependencies
-	system('echo "Updating repositories... " && sudo apt -qq update && echo Done')
+	system('echo "Updating repositories... " && sudo apt -q update && echo Done')
 	system('echo -n "Installing wget & curl..." && sudo apt install wget > /dev/null 2>&1 && sudo apt install curl > /dev/null 2>&1 && echo Done')
 
 	# begin setup

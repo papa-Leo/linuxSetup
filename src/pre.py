@@ -4,8 +4,8 @@ from os.path import exists
 HOME = environ['HOME']
 
 def main():
-	system('sudo apt install python3-pip -y -qq')
-	system('pip3 install fontTools -qq')
+	system('sudo apt install python3-pip -y -q')
+	system('pip3 install fontTools -q')
 
 	if not exists(f'{HOME}/.ossetup'):
 		system(f'mkdir {HOME}/.ossetup/ && cd {HOME}/.ossetup && mkdir {HOME}/.ossetup/fonts/ && {HOME}/.ossetup/mkdir {HOME}/.ossetup/assets/icons/ {HOME}/.ossetup/assets/configFiles/ {HOME}/.ossetup/assets/wallpapers/ {HOME}/.ossetup/assets/archives/')
