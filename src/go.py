@@ -13,7 +13,7 @@ def main():
 
 	# install some dependencies
 	system('echo "Updating repositories... " && sudo apt -q update && echo Done')
-	system('echo -n "Installing wget & curl..." && sudo apt install wget > /dev/null 2>&1 && sudo apt install curl > /dev/null 2>&1 && echo Done')
+	system('echo -n "Installing wget & curl..." && sudo apt install wget -q -y && sudo apt install curl -q -y && echo Done')
 
 	# begin setup
 	answer = input('Setup default PalOS? [y/n] ')
