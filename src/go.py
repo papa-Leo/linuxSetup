@@ -11,6 +11,9 @@ def main():
 	system('echo "		WELCOME TO THE LINUX SETUP CLI"')
 	print('Please ensure you\'ve run pre.py before this')
 
+	print(f'\nHome directory: {HOME}')
+	print(f'User: {USER}\n')
+
 	# install some dependencies
 	system('echo "Updating repositories... " && sudo apt -q update && echo Done')
 	system('echo -n "Installing wget & curl..." && sudo apt install wget -q -y && sudo apt install curl -q -y && echo Done')
