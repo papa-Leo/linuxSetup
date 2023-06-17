@@ -3,16 +3,15 @@ from os import system
 import fontConfig, apps, term, gnome
 
 # get system information
-HOME = os.environ['HOME']
-USER = os.environ['USER']
+HOME = '~'
+# USER = os.environ['USER']
 
 def main():
 	# welcome message
 	system('echo "		WELCOME TO THE LINUX SETUP CLI"')
 	print('Please ensure you\'ve run pre.py before this')
 
-	print(f'\nHome directory: {HOME}')
-	print(f'User: {USER}\n')
+	print(f'\nHome directory: {HOME}\n')
 
 	# install some dependencies
 	system('echo "Updating repositories... " && sudo apt -q update && echo Done')
