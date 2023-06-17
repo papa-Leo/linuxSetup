@@ -32,15 +32,15 @@ def patchFont(HOME):
 			system(f'python3 {HOME}/.ossetup/fontPatcher/font-patcher {HOME}/.ossetup/fonts/"{file}" -s -c -q --fontawesome --fontawesomeextension --fontlogos --octicons --codicons --powersymbols --pomicons --powerline --powerlineextra --material --weather -out {HOME}/.ossetup/fonts/patched/ > /dev/null 2>&1')
 	system('echo Done!')
 
-	system(f'echo "Removing font-patcher... " && cd {HOME}/.ossetup/ && rm -rf fontPatcher/ && sudo apt remove python3-fontforge -y > /dev/null 2>&1')
+	system(f'echo "Removing font-patcher... " && cd {HOME}/.ossetup/ && rm -rf fontPatcher/ && sudo apt remove python3-fontforge -y > /dev/null 2>&1 && echo Done')
 	if not os.path.exists(f'{HOME}/.local/share/fonts/'):
 		system(f'mkdir {HOME}/.local/share/fonts/')
-	system(f'echo -n "Installing patched fonts... " && cd {HOME}/.ossetup/fonts/patched/ && cp ./* {HOME}/.local/share/fonts/ && echo Done!')
+	system(f'echo -n "Installing patched fonts... " && cp {HOME}/.ossetup/fonts/patched/* {HOME}/.local/share/fonts/ && echo Done!')
 
 def installFont(HOME):
 	if not os.path.exists(f'{HOME}/.local/share/fonts/'):
 		system(f'mkdir {HOME}/.local/share/fonts/')
-	system(f'echo -n "Installing fonts... " && cd {HOME}/.ossetup/fonts/ && cp ./* {HOME}/.local/share/fonts/ && Done!')
+	system(f'echo -n "Installing fonts... " && cd {HOME}/.ossetup/fonts/ && cp ./* {HOME}/.local/share/fonts/ && echo Done!')
 
 # this method gets user choice within a number range
 def getUserChoice(low, hi):
