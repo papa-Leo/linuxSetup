@@ -3,7 +3,7 @@ from os import system
 import fontConfig, apps, term, gnome
 
 # get system information
-HOME = os.path.expanduser('~')
+HOME = input('What is your home path? /home/')
 # USER = os.environ['USER']
 
 def main():
