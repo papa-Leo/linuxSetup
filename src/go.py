@@ -86,3 +86,5 @@ def getUserChoice(low, hi):
 
 def ret():
 	return
+
+main()
