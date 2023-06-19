@@ -19,7 +19,7 @@ def main():
 
 	# begin setup
 	answer = input('Setup default PalOS? [y/n] ')
-	ynMethods(answer, defaultPalOS, customSetup)
+	ynMethods(answer, defaultPalOS, customSetup, [None], [None])
 
 def defaultPalOS():
 	print('Papa Leo')
@@ -27,14 +27,14 @@ def defaultPalOS():
 def customSetup():
 	# install nerd fonts
 	print()
-	ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont(HOME), fontConfig.patchFont(HOME))
+	ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont, fontConfig.patchFont, [HOME], [HOME])
 
 	# choose main monospace font
 	FONT = fontConfig.chooseDefaultFont(HOME)
 
 	# install zsh
 	print()
-	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH(HOME), ret())
+	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH(HOME), ret(), [HOME], [None])
 
 	# configure gnome-terminal
 	print()
@@ -46,30 +46,30 @@ def customSetup():
 
 	# install browsers
 	print()
-	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers(), ret())
+	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers(), ret(), [None], [None])
 
 	# install apps
 	print()
-	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps(), ret())
-	ynMethods(input('Would you like the Spicetify client for Spotify? [y/n] '), apps.installSpicetify(), ret())
+	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps(), ret(), [None], [None])
+	ynMethods(input('Would you like the Spicetify client for Spotify? [y/n] '), apps.installSpicetify(), ret(), [None], [None])
 
 	# install and configure gnome-tweaks
 	print()
-	ynMethods(input('Would you like to install gnome-tweaks? [y/n] '), gnome.tweaks(), ret())
+	ynMethods(input('Would you like to install gnome-tweaks? [y/n] '), gnome.tweaks(), ret(), [None], [None])
 
 # this method takes Y/N user input and executes a given method
-def ynMethods(answer, yesMethod, noMethod):
+def ynMethods(answer, yesMethod, noMethod, yesArgs, noArgs):
 	while True:
 		if answer.lower() in ['y', 'yes']:
-			yesMethod()
+			yesMethod(*yesArgs)
 			break
 		elif answer.lower() in ['n', 'no']:
-			noMethod()
+			noMethod(*noArgs)
 			break
 		else:
 			answer = input('Invalid option, choose yes or no: ')
 
-# this method takes Y/N user input and ret()urns a given value
+# this method takes Y/N user input and returns a given value
 def ynOptions(answer, yesOption, noOption):
 	while True:
 		if answer.lower() in ['y', 'yes']:
