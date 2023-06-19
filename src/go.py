@@ -4,7 +4,7 @@ import fontConfig, apps, term, gnome, gradient_figlet
 gradient_figlet.print_with_gradient_figlet('ubuntu setup', 'slant', gradient_figlet.Color('#ff5f6d'), gradient_figlet.Color('#ffc371'))
 
 # get system information
-USER = input('What is your username? ')
+USER = input('Hello! What is your username? ')
 HOME = '/home/' + USER
 
 def main():
@@ -59,23 +59,25 @@ def customSetup():
 
 # this method takes Y/N user input and executes a given method
 def ynMethods(answer, yesMethod, noMethod):
-	if answer == 'y' or answer == 'Y':
-		yesMethod()
-	elif answer == 'n' or answer == 'N':
-		noMethod()
-	else:
-		answer = input('Invalid option, try again: ')
-		ynMethods(answer, yesMethod, noMethod)
+	while True:
+		if answer.lower() in ['y', 'yes']:
+			yesMethod()
+			break
+		elif answer.lower() in ['n', 'no']:
+			noMethod()
+			break
+		else:
+			answer = input('Invalid option, choose yes or no: ')
 
 # this method takes Y/N user input and ret()urns a given value
 def ynOptions(answer, yesOption, noOption):
-	if answer == 'y' or answer == 'Y':
-		return yesOption
-	elif answer == 'n' or answer == 'N':
-		return noOption
-	else:
-		answer = input('Invalid option, try again: ')
-		return ynOptions(answer, yesOption, noOption)
+	while True:
+		if answer.lower() in ['y', 'yes']:
+			return yesOption
+		elif answer.lower() in ['n', 'no']:
+			return noOption
+		else:
+			answer = input('Invalid option, choose yes or no: ')
 
 # this method gets user choice within a number range
 def getUserChoice(low, hi):
