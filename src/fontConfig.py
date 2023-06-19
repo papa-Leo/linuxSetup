@@ -35,12 +35,12 @@ def patchFont(HOME):
 	system(f'echo "Removing font-patcher... " && cd {HOME}/.ossetup/ && rm -rf fontPatcher/ && sudo apt remove python3-fontforge -y > /dev/null 2>&1 && echo Done')
 	if not os.path.exists(f'{HOME}/.local/share/fonts/'):
 		system(f'mkdir {HOME}/.local/share/fonts/')
-	system(f'echo -n "Installing patched fonts... " && cp -r {HOME}/.ossetup/fonts/patched/* {HOME}/.local/share/fonts/ && echo Done!')
+	system(f'echo -n "Installing patched fonts... " && cp -r {HOME}/.ossetup/fonts/patched/ {HOME}/.local/share/fonts/ && echo Done!')
 
 def installFont(HOME):
 	if not os.path.exists(f'{HOME}/.local/share/fonts/'):
 		system(f'mkdir {HOME}/.local/share/fonts/')
-	system(f'echo -n "Installing fonts... " && cp -r {HOME}/.ossetup/fonts/* {HOME}/.local/share/fonts/ && echo Done!')
+	system(f'echo -n "Installing fonts... " && cp -r {HOME}/.ossetup/fonts/ {HOME}/.local/share/fonts/ && echo Done!')
 
 # this method gets user choice within a number range
 def getUserChoice(low, hi):

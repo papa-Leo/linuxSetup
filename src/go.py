@@ -1,4 +1,3 @@
-import os
 from os import system
 import fontConfig, apps, term, gnome
 
@@ -19,7 +18,7 @@ def main():
 
 	# begin setup
 	answer = input('Setup default PalOS? [y/n] ')
-	ynMethods(answer, defaultPalOS(), customSetup())
+	ynMethods(answer, defaultPalOS, customSetup)
 
 def defaultPalOS():
 	print('Papa Leo')
