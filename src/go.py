@@ -1,20 +1,21 @@
 from os import system
-import fontConfig, apps, term, gnome
+import fontConfig, apps, term, gnome, gradient_figlet
+
+gradient_figlet.print_with_gradient_figlet('ubuntu setup', 'slant', gradient_figlet.Color('#ff5f6d'), gradient_figlet.Color('#ffc371'))
 
 # get system information
-HOME = '/home/' + input('What is your home path? /home/')
-# USER = os.environ['USER']
+USER = input('What is your username? ')
+HOME = '/home/' + USER
 
 def main():
 	# welcome message
-	system('echo "		WELCOME TO THE LINUX SETUP CLI"')
-	print('Please ensure you\'ve run pre.py before this')
+	print(f'\nWelcome to the Ubuntu Setup Script, {USER}! Please ensure you\'ve run pre.py before this')
 
-	print(f'\nHome directory: {HOME}\n')
+	print(f'\nYour home directory: {HOME}\n')
 
 	# install some dependencies
-	system('echo "Updating repositories... " && sudo apt -q update && echo Done')
-	system('echo -n "Installing wget & curl..." && sudo apt install wget -q -y && sudo apt install curl -q -y && echo Done')
+	# system('echo "Updating repositories... " && sudo apt -q update && echo Done')
+	# system('echo -n "Installing wget & curl..." && sudo apt install wget -q -y && sudo apt install curl -q -y && echo Done')
 
 	# begin setup
 	answer = input('Setup default PalOS? [y/n] ')

@@ -1,0 +1,4 @@
+fonttools
+click
+pyfiglet
+gradient-figlet
