@@ -9,12 +9,7 @@ def chooseDefaultFont(HOME):
 	for font in os.listdir(f'{HOME}/.local/share/fonts/'):
 		try:
 			ttFont = ttLib.TTFont(f'{HOME}/.local/share/fonts/{font}')
-			ttFont.getTableData
-			nameTable = ttFont.get(fontName)
-			for record in nameTable.:
-				if record.nameID == 1:
-					fontName = record.toUnicode()
-					break
+			fontName = ttFont['name'].getDebugName(1)
 			if not fontName in fonts:
 				fonts.append(fontName)
 		except:

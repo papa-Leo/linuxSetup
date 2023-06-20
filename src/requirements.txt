@@ -1,3 +1,3 @@
-fonttools
+fonttools==4.33.0
 pyfiglet
 gradient-figlet
