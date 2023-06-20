@@ -19,7 +19,7 @@ def main():
 
 	# begin setup
 	answer = input('Setup default PalOS? [y/n] ')
-	ynMethods(answer, defaultPalOS, customSetup, [None], [None])
+	ynMethods(answer, defaultPalOS, customSetup, [], [])
 
 def defaultPalOS():
 	print('Papa Leo')
@@ -34,7 +34,7 @@ def customSetup():
 
 	# install zsh
 	print()
-	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH(HOME), ret(), [HOME], [None])
+	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH(HOME), ret(), [HOME], [])
 
 	# configure gnome-terminal
 	print()
@@ -46,16 +46,16 @@ def customSetup():
 
 	# install browsers
 	print()
-	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers(), ret(), [None], [None])
+	ynMethods(input('Would you like to choose some browsers to install? [y/n] '), apps.browsers(), ret(), [], [])
 
 	# install apps
 	print()
-	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps(), ret(), [None], [None])
-	ynMethods(input('Would you like the Spicetify client for Spotify? [y/n] '), apps.installSpicetify(), ret(), [None], [None])
+	ynMethods(input('Would you like to choose some apps to install? [y/n] '), apps.apps(), ret(), [], [])
+	ynMethods(input('Would you like the Spicetify client for Spotify? [y/n] '), apps.installSpicetify(), ret(), [], [])
 
 	# install and configure gnome-tweaks
 	print()
-	ynMethods(input('Would you like to install gnome-tweaks? [y/n] '), gnome.tweaks(), ret(), [None], [None])
+	ynMethods(input('Would you like to install gnome-tweaks? [y/n] '), gnome.tweaks(), ret(), [], [])
 
 # this method takes Y/N user input and executes a given method
 def ynMethods(answer, yesMethod, noMethod, yesArgs, noArgs):

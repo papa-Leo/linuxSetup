@@ -9,7 +9,12 @@ def chooseDefaultFont(HOME):
 	for font in os.listdir(f'{HOME}/.local/share/fonts/'):
 		try:
 			ttFont = ttLib.TTFont(f'{HOME}/.local/share/fonts/{font}')
-			fontName = ttFont['name'].getDebugName(1)
+			ttFont.getTableData
+			nameTable = ttFont.get(fontName)
+			for record in nameTable.:
+				if record.nameID == 1:
+					fontName = record.toUnicode()
+					break
 			if not fontName in fonts:
 				fonts.append(fontName)
 		except:
@@ -44,9 +49,9 @@ def installFont(HOME):
 
 # this method gets user choice within a number range
 def getUserChoice(low, hi):
-	userChoice = int(input(f'Choose an option [{low}-{hi}]: '))
-	if userChoice >= low and userChoice <= hi:
-		return userChoice
-	else:
-		print('Invalid option, please try again.')
-		getUserChoice(low, hi)
+	while True:
+		userChoice = int(input(f'Choose an option [{low}-{hi}]: '))
+		if userChoice >= low and userChoice <= hi:
+			return userChoice
+		else:
+			print('Invalid option, please try again.')
