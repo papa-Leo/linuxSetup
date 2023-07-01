@@ -1,5 +1,6 @@
 from os import system
-import fontConfig, apps, term, gnome, gradient_figlet
+import apps, term, gnome, gradient_figlet
+# import fontConfig
 
 gradient_figlet.print_with_gradient_figlet('ubuntu setup', 'slant', gradient_figlet.Color('#ff5f6d'), gradient_figlet.Color('#ffc371'))
 
@@ -26,11 +27,11 @@ def defaultPalOS():
 
 def customSetup():
 	# install nerd fonts
-	print()
-	ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont, fontConfig.patchFont, [HOME], [HOME])
+	# print()
+	# ynMethods(input('Is your pre-selected font a NerdFont? [y/n] '), fontConfig.installFont, fontConfig.patchFont, [HOME], [HOME])
 
 	# choose main monospace font
-	FONT = fontConfig.chooseDefaultFont(HOME)
+	# FONT = fontConfig.chooseDefaultFont(HOME)
 
 	# install zsh
 	print()
