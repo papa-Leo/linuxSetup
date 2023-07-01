@@ -9,9 +9,10 @@ def main():
 	system('pip3 install -qq -r requirements.txt')
 
 	if not exists(f'{HOME}/.ossetup'):
-		system(f'mkdir {HOME}/.ossetup/ && cd {HOME}/.ossetup && mkdir {HOME}/.ossetup/fonts/ && {HOME}/.ossetup/mkdir {HOME}/.ossetup/assets/icons/ {HOME}/.ossetup/assets/configFiles/ {HOME}/.ossetup/assets/wallpapers/ {HOME}/.ossetup/assets/archives/')
+		system(f'mkdir {HOME}/.ossetup/ && cd {HOME}/.ossetup && mkdir {HOME}/.ossetup/fonts/ && mkdir {HOME}/.ossetup/assets/icons/ {HOME}/.ossetup/assets/configFiles/ {HOME}/.ossetup/assets/wallpapers/ {HOME}/.ossetup/assets/archives/')
 
-	print('\nPut your prefered monospace font family in the ~/.ossetup/fonts/ directory, then run go.py with sudo.')
-	
+	print('\nYou can now run go.py')
+	# print('\nPut your prefered monospace font family in the ~/.ossetup/fonts/ directory, then run go.py with sudo.')
+	 
 
 main()

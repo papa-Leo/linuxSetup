@@ -38,8 +38,8 @@ def customSetup():
 	ynMethods(input('Would you like to install zsh with oh-my-zsh? [y/n] '), term.installZSH(HOME), ret(), [HOME], [])
 
 	# configure gnome-terminal
-	print()
-	term.configureTerminal(HOME, input('Please enter a terminal profile UUID: '), FONT)
+	# print()
+	# term.configureTerminal(HOME, input('Please enter a terminal profile UUID: '), FONT)
 
 	# install CLIs
 	print()
