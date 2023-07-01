@@ -62,10 +62,16 @@ def customSetup():
 def ynMethods(answer, yesMethod, noMethod, yesArgs, noArgs):
 	while True:
 		if answer.lower() in ['y', 'yes']:
-			yesMethod(*yesArgs)
+			try:
+				yesMethod(*yesArgs)
+			except:
+				yesMethod()
 			break
 		elif answer.lower() in ['n', 'no']:
-			noMethod(*noArgs)
+			try:
+				noMethod(*noArgs)
+			except:
+				noMethod()
 			break
 		else:
 			answer = input('Invalid option, choose yes or no: ')
